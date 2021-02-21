@@ -1,6 +1,6 @@
 const passport = require("passport");
 const GoogleStrategy = require("passport-google-oauth20");
-const keys = require("../config/keys");
+const keys = require("../config/dev");
 
 // pull the schema out of mongoose
 const mongoose = require("mongoose");
@@ -10,7 +10,7 @@ const User = mongoose.model("users");
 passport.serializeUser((user, done) => {
   done(null, user.id);
 });
-
+// user.id /id will be unique identifier in SQl, or primary k
 passport.deserializeUser((id, done) => {
   User.findById(id).then(user => done(null, user));
 });
@@ -22,7 +22,7 @@ passport.use(
     {
       clientID: keys.googleClientID,
       clientSecret: keys.googleClientSecret,
-      callbackURL: "/auth/google/callback",
+      callbackURL: "/auth/login/callback",
     },
     (accessToken, refreshToken, profile, done) => {
       User.findOne({ googleId: profile.id }).then(user => {
