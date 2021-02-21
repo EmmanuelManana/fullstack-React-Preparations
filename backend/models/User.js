@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 // const {Schema} = mongoose;
 
 const userSchema = mongoose.Schema({
-    googleID : {
+    googleId : {
         type: String,
         required: true
     }
