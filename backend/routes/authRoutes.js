@@ -16,4 +16,5 @@ router.get("/google/callback", passport.authenticate("google"), (req, res) => {
     .send({ redirected: "user has been redirected, back to our side" });
 });
 
+
 module.exports = router;
