@@ -3,4 +3,5 @@ module.exports = {
   googleClientSecret: process.env.GOOGLE_CLIENT_SECRET,
   cookieKey: process.env.COOKIE_KEY,
   DB_CONNECT: process.env.MONGO_URI,
+  CALLBACK_URL : process.env.CALLBACK_URL
 };
