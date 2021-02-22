@@ -6,4 +6,4 @@
 
 <h3> run : npm run dev </h3>
 
-<h3> -> that shoould start both the server and client servers</h3>
+<h3> -> that should start both the server and client servers</h3>
