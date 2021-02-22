@@ -2,7 +2,7 @@ const express = require("express");
 const authRoutes = require("./routes/authRoutes");
 const cookieSession = require('cookie-session')
 const passport = require('passport')
-const keys = require('./config/dev')
+const keys = require('./config/keys')
 require("./models/User");
 require("./services/passport"); //uses googleOauth
 require("dotenv/config");

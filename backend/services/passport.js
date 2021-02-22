@@ -1,6 +1,6 @@
 const passport = require("passport");
 const GoogleStrategy = require("passport-google-oauth20");
-const keys = require("../config/dev");
+const keys = require("../config/keys");
 
 // pull the schema out of mongoose
 const mongoose = require("mongoose");
