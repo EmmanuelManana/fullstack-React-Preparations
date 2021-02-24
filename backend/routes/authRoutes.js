@@ -19,7 +19,7 @@ router.use("/logout", (req, res) => {
 });
 
 // get the current user, in rhis session
-router.get("/user", (req, res) => {
+router.get("/api/user", (req, res) => {
  // res.send(req.session);
   res.send(req.user);
 });

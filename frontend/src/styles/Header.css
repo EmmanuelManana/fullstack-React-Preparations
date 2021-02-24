@@ -7,7 +7,7 @@
   height: auto;
   width: auto;
   align-items: center;
-  position: sticku;
+  position: sticky;
 }
 
 .header__right > h2 {

@@ -4,8 +4,24 @@ import Dashboard from "./components/Dashboard";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import LandingPage from "./components/LandingPage";
 import SurveyNew from "./components/SurveyNew";
+import { useEffect } from "react";
+import * as actions from "./actions/index";
+import { connect } from "react-redux";
 
-function App() {
+function App(props) {
+  useEffect(() => {
+    try{
+      props.fetchUser()
+    }catch(e){
+      //must do logging
+      console.log(e)
+    }
+    
+    return () => {
+      // cleanup
+    };
+  }, [props]);
+
   return (
     <Router>
       <div className="guguglethu">
@@ -20,6 +36,6 @@ function App() {
   );
 }
 
-export default App;
+export default connect(null, actions)(App);
 
 /* <a href="/auth/login">Sign in with Google Auth</a> */

@@ -9,11 +9,11 @@ const Header = () => {
       </div>
 
       <div className="header__left">
-        <li>
-          <p>
+        <ul>
+          <li>
             <a href="/auth/login">Sign in with Google Auth</a>
-          </p>
-        </li>
+          </li>
+        </ul>
       </div>
     </div>
   );
