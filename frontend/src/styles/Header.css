@@ -1,0 +1,27 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  background-color: rgb(85, 85, 110);
+  max-height: 10vh;
+  height: auto;
+  width: auto;
+  align-items: center;
+  position: sticku;
+}
+
+.header__right > h2 {
+  color: white;
+}
+
+li {
+  list-style: none;
+}
+
+li a {
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 15px;
+  letter-spacing: 1px;
+  color: white;
+}
