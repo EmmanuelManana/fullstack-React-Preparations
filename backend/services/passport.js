@@ -24,20 +24,21 @@ passport.use(
       clientSecret: keys.googleClientSecret,
       callbackURL: keys.CALLBACK_URL,
     },
-    (accessToken, refreshToken, profile, done) => {
-      User.findOne({ googleId: profile.id }).then(user => {
+    async (accessToken, refreshToken, profile, done) => {
+      const user = await User.findOne({ googleId: profile.id });
+
+      try {
         if (user) {
           console.log("user exist");
           done(null, user);
         } else {
-          new User({ googleId: profile.id })
-            .save()
-            .then(user => done(null, user))
-            .catch(e => {
-              console.log(e);
-            });
+          const newUser = await new User({ googleId: profile.id }).save();
+          done(null, newUser);
         }
-      });
+      } catch (e) {
+        // must logging
+        console.log("Loggin Exception: ", e)
+      }
     }
   )
 );
