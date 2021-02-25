@@ -25,3 +25,8 @@ li a {
   letter-spacing: 1px;
   color: white;
 }
+
+.header__links{
+  text-decoration: none;
+  color: white;
+}

@@ -1,18 +1,13 @@
 import { FETCH_USER } from "./types";
 
-//action creater.
 export const fetchUser = () => {
   // redux, detects a function is returned,
   // then calls (returned function), with dispatch.
-  console.log(`action state :${FETCH_USER}`);
-  return dispatch => {
-    fetch("/auth/api/user")
-      .then(res => res.json())
-      .then(userPayload =>
-        dispatch({ type: FETCH_USER, payload: userPayload })
-      ).catch(e => {
-         // must log
-         console.log('user not logged in: ', e)
-      })
+  return async dispatch => {
+    let res = await fetch("/auth/api/user").then(res => res.json()).catch(e => {
+      //must used logs
+      console.error("user not logged in:", e);
+    });
+    dispatch({ type: FETCH_USER, payload: res });
   };
 };

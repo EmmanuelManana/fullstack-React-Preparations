@@ -1,16 +1,11 @@
 import { FETCH_USER } from "../actions/types";
 
-const authReducer = (state = [], action) => {
-
-  console.log("check payload: => ", action.payload)
+const authReducer = (state = null, action) => {
   switch (action.type) {
     case FETCH_USER:
-      console.log(`manage state here`)
-      return state;
-      //break;
+      return action.payload || false;
     default:
       return state;
-      // break;
   }
 };
 

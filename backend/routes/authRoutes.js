@@ -1,6 +1,8 @@
 const passport = require("passport");
 const express = require("express");
 const router = express.Router();
+const keys = require('../config/keys')
+
 
 router.get(
   "/login",
@@ -9,19 +11,21 @@ router.get(
 );
 
 router.get("/login/callback", passport.authenticate("google"), (req, res) => {
-  res.status(200).send({ redirected: "user logged in" });
+  // res.status(200).send({ redirected: "user logged in" });
+  res.redirect(`${keys.CLIENT_URL}/dashboard`)
 });
 
 // reset the session cookie.
-router.use("/logout", (req, res) => {
+router.use("/api/logout", (req, res) => {
   req.logout();
-  res.status(200).send(req.user);
+ // res.status(200).send({ loggedout: "user loggeout"});
+ res.redirect(`${keys.CLIENT_URL}/`)
 });
 
 // get the current user, in rhis session
 router.get("/api/user", (req, res) => {
- // res.send(req.session);
-  res.send(req.user);
+  // res.send(req.session);
+  res.status(200).send(req.user);
 });
 
 module.exports = router;

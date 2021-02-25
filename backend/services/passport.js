@@ -36,7 +36,7 @@ passport.use(
           done(null, newUser);
         }
       } catch (e) {
-        // must logging
+        // must uselogging
         console.log("Loggin Exception: ", e)
       }
     }
