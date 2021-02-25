@@ -11,6 +11,7 @@ import { connect } from "react-redux";
 function App(props) {
   useEffect(() => {
     try{
+      // dispatch on mount
       props.fetchUser()
     }catch(e){
       //must do logging
@@ -35,7 +36,8 @@ function App(props) {
     </Router>
   );
 }
-
+//connect the store(created in index.js)
+// pass action creates
 export default connect(null, actions)(App);
 
 /* <a href="/auth/login">Sign in with Google Auth</a> */
