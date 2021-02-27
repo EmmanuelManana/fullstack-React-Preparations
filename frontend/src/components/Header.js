@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import "../styles/Header.css";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import Payments from "./Payments";
 
 const Header = (props) => {
   useEffect(() => {
@@ -28,27 +29,29 @@ const Header = (props) => {
         );
       default:
         return (
-          <ul>
-            <li>
+          [<ul key={0}>
+             <li>
+            <Payments />
+          </li>,
+            <li key={1}>
               <a href="/auth/api/logout">logout</a>
             </li>
-          </ul>
+          </ul>]
         );
     }
   };
 
   return (
     <div className="header">
-      <div className="header__right">
-        <Link 
-        to={props.auth ? '/dashboard' : '/'}
-        className="header__links"
-        >
+      <div className="header__left">
+        <Link to={props.auth ? "/dashboard" : "/"} className="header__links">
           <h2>Mails</h2>
         </Link>
       </div>
 
-      <div className="header__left">{loggedInStatus()}</div>
+      <div className="header__right">
+        {loggedInStatus()}
+      </div>
     </div>
   );
 };

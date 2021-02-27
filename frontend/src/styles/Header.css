@@ -30,3 +30,13 @@ li a {
   text-decoration: none;
   color: white;
 }
+
+
+.header__right ul{
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.header__right ul li{
+  padding: 10px 30px;
+}

@@ -32,7 +32,6 @@ app.get("/", (req, res) => {
   res.status(200).send({ object: "response object" });
 });
 
-
 mongoose.connect(
   keys.DB_CONNECT,
   {
