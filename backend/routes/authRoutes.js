@@ -27,9 +27,6 @@ router.get("/api/user", (req, res) => {
   res.status(200).send(req.user);
 });
 
-router.get("/api/stripe", (req, res) => {
 
-  res.status(201).send({})
-})
 
 module.exports = router;

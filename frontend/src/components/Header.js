@@ -6,7 +6,6 @@ import Payments from "./Payments";
 
 const Header = (props) => {
   useEffect(() => {
-    console.log("header props:", props);
   }, [props]);
 
   const loggedInStatus = () => {
